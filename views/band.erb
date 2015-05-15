@@ -1,0 +1,23 @@
+<h1>Band:<%=@band.band_name%></h1>
+<h3>The venues are:</h3>
+
+<% if @band.venues.any?() %>
+  <% @band.venues.each() do |venue| %>
+    <ul>
+      <li><a href='/venue/<%=venue.id %>'><%=venue.venue_name() %></a></li>
+    </ul>
+  <%end%>
+  <%else%>
+    <p>You have no venues attached to this !</p>
+  <%end%>
+
+  <h3>Add a Venue to the Band:</h3>
+
+  <form action='/band_venue_add/' method='post'>
+    <input type='hidden' name='band_id'  value=<%= @band.id %>
+    <label for='venue_name'>Add a venue:</label>
+    <input id='venue_name' name='venue_name' type='text'>
+    <button type='submit' class='btn btn-info'>Add Venue</button>
+  </form>
+
+  <p><a href='/'>Go to index page</a></p>

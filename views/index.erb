@@ -1,0 +1,39 @@
+<h1>Welcome to Bands and Venues</h1>
+
+<h3>Here are your current bands:</h3>
+
+<% if @bands.any?() %>
+<% @bands.each() do |band| %>
+  <ul>
+      <li><a href='/band/<%=band.id()%>'> <%=band.band_name()%></a></li>
+  </ul>
+    <%end%>
+<%else %>
+  <p> You have no bands!</p>
+<%end%>
+
+<form action='/band_add/' method='post'>
+  <div class='form-group'>
+    <label for='band_name'/> Add Band: </label>
+    <input id='band_name' name='band_name' type='text'>
+  </div>
+  <button type='submit' class='btn btn-info'>Add Band</button>
+</form>
+
+<h3>Here are all the venus:</h3>
+
+<% if @venues.any?() %>
+<% @venues.each() do |venue| %>
+  <ul>
+      <li><a href='/venue/<%=venue.id()%>'> <%=venue.venue_name()%></a></li>
+  </ul>
+    <%end%>
+<%else %>
+  <p> You have no venues!</p>
+<%end%>
+
+<form action='/venue_add/' method='post'>
+  <label for='venue_name'>Category Name</label>
+  <input id='venue_name' name='venue_name' type='text'>
+  <button type='submit' class='btn btn-info'>Add Venue</button>
+</form>
