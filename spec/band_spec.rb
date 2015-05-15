@@ -13,8 +13,8 @@ describe(Band) do
     expect(test_band.save()).to(eq(false))
   end
 
-  it("converts the first letter of each word in the band name to uppercase") do
-    test_band = Band.create({:band_name => 'the beatles'})
-    expect(test_band.band_name()).to(eq('The Beatles'))
-  end
+  # it("converts the first letter of each word in the band name to uppercase") do
+  #   test_band = Band.create({:band_name => 'the beatles'})
+  #   expect(test_band.band_name()).to(eq('The Beatles'))
+  # end
 end
